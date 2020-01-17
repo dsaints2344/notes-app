@@ -11,15 +11,6 @@ workflows:
       - react/test:
           requires:
             - react/install
-          steps:
-            - run:
-                command: yarn add --dev jest-junit
-                name: Install JUnit reporte
-            - run:
-                command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
-                environment:
-                    JEST_JUNIT_OUTPUT: ~reports\jest-junit.xml
-                name: Run tests with JUnit as reporter
       - react/coverage:
           requires:
             - react/install
