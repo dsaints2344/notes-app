@@ -21,6 +21,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "jest-junit": {
+    "outputDirectory": "reports",
+    "outputName": "jest-junit.xml"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -35,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "jest-junit": "^10.0.0",
+    "ts-jest": "^24.3.0"
   }
 }

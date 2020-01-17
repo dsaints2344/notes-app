@@ -11,6 +11,15 @@ workflows:
       - react/test:
           requires:
             - react/install
+          - run:
+              name: "React test suites"
+              command: yarn test --ci --runInBand --reporters="jest-junit"
+              enviroment: 
+                JEST_JUNIT_OUTPUT_DIR: "reports/jest-junit.xml"
+          - store_test_results:
+              path: reports
+          - store_artifacts:
+              path: reports/junit
       - react/coverage:
           requires:
             - react/install
