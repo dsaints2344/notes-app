@@ -11,6 +11,11 @@ workflows:
       - react/test:
           requires:
             - react/install
+          steps:
+            - store_test_results:
+                path: reports
+            - store_artifacts:
+                path: reports
       - react/coverage:
           requires:
             - react/install
