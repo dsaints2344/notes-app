@@ -4,6 +4,12 @@ version: 2.1
 workflows:
   push:
     jobs:
+      - test:
+          steps:
+            - store_test_results:
+                path: reports
+            - store_artifacts:
+                path: reports
       - react/install
       - react/eslint:
           requires:
@@ -11,10 +17,6 @@ workflows:
       - react/test:
           requires:
             - react/install
-            - store_test_results:
-                path: reports
-            - store_artifacts:
-                path: reports
       - react/coverage:
           requires:
             - react/install
